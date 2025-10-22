@@ -1,0 +1,2 @@
+C:/Users/erikc/Documents/GitHub/UltraKill/build/CMakeFiles/edit_cache.dir
+C:/Users/erikc/Documents/GitHub/UltraKill/build/CMakeFiles/rebuild_cache.dir

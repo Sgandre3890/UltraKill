@@ -1,4 +1,4 @@
 cd build
 cmake --build .
-cd ..
+cd ..\debug
 out.exe
