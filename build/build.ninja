@@ -11,8 +11,8 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Project
-# Configurations: Debug
+# Project: UltraKill
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -40,6 +40,42 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/erikc/Documents/GitHub/UltraKill/build/
+# =============================================================================
+# Object build statements for EXECUTABLE target out
+
+
+#############################################
+# Order-only phony target for out
+
+build cmake_object_order_depends_target_out: phony || .
+
+build CMakeFiles/out.dir/src/main.cpp.obj: CXX_COMPILER__out_unscanned_Release C$:/Users/erikc/Documents/GitHub/UltraKill/src/main.cpp || cmake_object_order_depends_target_out
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\out.dir\src\main.cpp.obj.d
+  FLAGS = -m64 -O3 -DNDEBUG -std=gnu++17
+  INCLUDES = -IC:/Users/erikc/Documents/GitHub/UltraKill/include
+  OBJECT_DIR = CMakeFiles\out.dir
+  OBJECT_FILE_DIR = CMakeFiles\out.dir\src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target out
+
+
+#############################################
+# Link the executable C:\Users\erikc\Documents\GitHub\UltraKill\out.exe
+
+build C$:/Users/erikc/Documents/GitHub/UltraKill/out.exe: CXX_EXECUTABLE_LINKER__out_Release CMakeFiles/out.dir/src/main.cpp.obj | C$:/Users/erikc/Documents/GitHub/UltraKill/static/libglfw3WIN.a C$:/Users/erikc/Documents/GitHub/UltraKill/static/libgladWIN.a
+  CONFIG = Release
+  FLAGS = -m64 -O3 -DNDEBUG
+  LINK_LIBRARIES = C:/Users/erikc/Documents/GitHub/UltraKill/static/libglfw3WIN.a  C:/Users/erikc/Documents/GitHub/UltraKill/static/libgladWIN.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\out.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = C:\Users\erikc\Documents\GitHub\UltraKill\out.exe
+  TARGET_IMPLIB = libout.dll.a
+  TARGET_PDB = out.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -67,6 +103,10 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build out: phony C$:/Users/erikc/Documents/GitHub/UltraKill/out.exe
+
+build out.exe: phony C$:/Users/erikc/Documents/GitHub/UltraKill/out.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -75,7 +115,14 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: C:/Users/erikc/Documents/GitHub/UltraKill/build
 
-build all: phony
+build codegen: phony
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/erikc/Documents/GitHub/UltraKill/build
+
+build all: phony C$:/Users/erikc/Documents/GitHub/UltraKill/out.exe
 
 # =============================================================================
 # Built-in targets
