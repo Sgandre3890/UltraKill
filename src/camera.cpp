@@ -1,23 +1,31 @@
 #include "camera.h"
 
-
+//Camera constructor
 Camera::Camera(int SCR_WIDTH, int SCR_HEIGHT, glm::vec3 position)
 {
+    //Copies screen dimensions for default camera/mouse position
     this->SCR_WIDTH = SCR_WIDTH;
     this->SCR_HEIGHT = SCR_HEIGHT;
+
+    //Sets default camera position/orientation
     Position = position;
-    Orientation = glm::vec3(0.0f, 0.0f, -1.0f); 
+    Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
 }
 
-
+//Finalizes calculations of camera orientations, perspective, location, etc
 void Camera::updateMatrix(float FOVdeg, float nearPlane, float farPlane)
 {
+    //Defaults view and projection matrices to identity
     glm::mat4 view = glm::mat4(1.0f);
     glm::mat4 projection = glm::mat4(1.0f);
 
+    //Handles trimming of vertices outside view
     view = glm::lookAt(Position, Position + Orientation, Up);
+
+    //Handles perspective and shrinking sizes over distance
     projection = glm::perspective(glm::radians(FOVdeg),(float)SCR_WIDTH / (float)SCR_HEIGHT,nearPlane, farPlane);
 
+    //Sets camera orientation to finalizes result of view and perspective
     camMatrix = projection * view;
 }
 
@@ -84,6 +92,10 @@ void Camera::Inputs(GLFWwindow* window)
         float pitchAngle = glm::degrees(glm::asin(newOrientation.y));
         if (pitchAngle < 85.0f && pitchAngle > -85.0f)
             Orientation = newOrientation;
+        else if (pitchAngle > 85.0f)
+            Orientation.y = glm::sin(glm::radians(85.0f));
+        else if (pitchAngle < -85.0f)
+            Orientation.y = glm::sin(glm::radians(-85.0f));
 
         // Yaw: rotate around global Up
         glm::mat4 yawMat = glm::rotate(glm::mat4(1.0f), glm::radians(-rotY), Up);
