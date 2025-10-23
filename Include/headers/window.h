@@ -1,5 +1,5 @@
 #pragma once
-namespace WIN {
+namespace Window {
 
     extern GLFWwindow* window;
     extern const unsigned int SCR_WIDTH;

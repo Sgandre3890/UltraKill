@@ -7,16 +7,16 @@
 
 int main() {
 
-    if (WIN::initializeWindow(WIN::SCR_WIDTH, WIN::SCR_HEIGHT, "UltraKill 🗣️🔥") != 0)
+    if (Window::initializeWindow(Window::SCR_WIDTH, Window::SCR_HEIGHT, "UltraKill 🗣️🔥") != 0)
         return -1;
 
-    while(!glfwWindowShouldClose(WIN::window)) {
+    while(!glfwWindowShouldClose(Window::window)) {
         
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        WIN::processInput(WIN::window);
-        glfwSwapBuffers(WIN::window);
+        Window::processInput(Window::window);
+        glfwSwapBuffers(Window::window);
         glfwPollEvents();
     }
     
