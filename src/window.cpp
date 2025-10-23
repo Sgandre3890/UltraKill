@@ -1,11 +1,9 @@
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
-#include <iostream>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "window.h"
+#include <iostream>
 
 namespace Window {
-    const unsigned int SCR_WIDTH = 800;
-    const unsigned int SCR_HEIGHT = 800;
     GLFWwindow* window = nullptr;
 
     void framebuffer_size_callback(GLFWwindow* window, int width, int height)
