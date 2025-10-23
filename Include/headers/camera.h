@@ -23,7 +23,7 @@ public:
     bool firstClick = true;
 
     float speed = 0.3f;
-    float sensitivity = 0.5f;
+    float sensitivity = 0.1f;
 
     float yaw   = -90.0f; // facing -Z by default
     float pitch = 0.0f;
