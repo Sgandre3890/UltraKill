@@ -7,7 +7,7 @@
 
 int main() {
 
-    if (WIN::initializeWindow(WIN::SCR_WIDTH, WIN::SCR_HEIGHT, "UltraKill") != 0)
+    if (WIN::initializeWindow(WIN::SCR_WIDTH, WIN::SCR_HEIGHT, "UltraKill 🗣️🔥") != 0)
         return -1;
 
     while(!glfwWindowShouldClose(WIN::window)) {
