@@ -1,5 +1,4 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include <GLFW/glfw3.h>  
 
@@ -12,4 +11,3 @@ namespace Window {
     void terminateWindow();
 }
 
-#endif
