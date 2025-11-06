@@ -12,15 +12,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/core/*.cpp")
+
 
 add_executable(out ${SOURCES})
 
 target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/Include)
-target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/Include/headers)
+target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/Include/tinyGLTF)
+target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/src/render)
 target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/Include/glm-0.9.9.7/glm)
-target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/Include/Resources/models)
-
 
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
