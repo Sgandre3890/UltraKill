@@ -10,7 +10,7 @@ const createScene = () => {
     camera.attachControl(canvas, true);
 
     const light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
-    light.intensity = 0.9;
+    light.intensity = 1.0;
 
     const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
     sphere.position.y = 0.5;
