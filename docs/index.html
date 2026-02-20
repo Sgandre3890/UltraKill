@@ -2,13 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Babylon test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLTF Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
 </head>
 <body>
+
     <canvas id="renderCanvas"></canvas>
+
+    <!-- Top Bar -->
+    <header id="topBar">
+        <div id="logo">
+            <span class="logo-bracket">[</span>
+            GLTF
+            <span class="logo-accent">VIEWER</span>
+            <span class="logo-bracket">]</span>
+        </div>
+        <div id="controls">
+            <label id="fileLabel" for="fileInput">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                Upload Files
+            </label>
+            <!-- multiple: lets users select gltf + bin + textures all at once -->
+            <input type="file" id="fileInput" multiple />
+            <button id="sampleBtn">Load Sample</button>
+            <button id="resetBtn" title="Reset camera">&#8634; Reset</button>
+        </div>
+    </header>
+
+    <!-- Drop Overlay -->
+    <div id="dropOverlay">
+        <div id="dropMessage">
+            <div class="drop-icon">&#8659;</div>
+            <p>Drop a <strong>.glb</strong> file, or drop <strong>all model files</strong> together</p>
+            <p class="drop-sub">.gltf + .bin + textures selected at once</p>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div id="statusBar">
+        <span id="statusDot"></span>
+        <span id="statusText">Ready — drag &amp; drop a model or use the controls above</span>
+    </div>
+
+    <!-- Info Panel -->
+    <div id="infoPanel">
+        <div class="info-row"><span class="info-label">Meshes</span><span id="infoMeshes">—</span></div>
+        <div class="info-row"><span class="info-label">Animations</span><span id="infoAnims">—</span></div>
+        <div class="info-row"><span class="info-label">Size</span><span id="infoSize">—</span></div>
+    </div>
+
+    <!-- Animation Controls -->
+    <div id="animControls" class="hidden">
+        <span class="info-label">Animations</span>
+        <div id="animList"></div>
+    </div>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     <script src="render.js"></script>
 </body>
 </html>
